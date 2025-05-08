@@ -15,7 +15,9 @@ public class Livro {
         private String titulo;
         private String autor;
         private boolean disponivel;
-         
+
+        private static int contadorId = 0;
+
         public Livro(){
             this.disponivel = true;
         }
@@ -28,17 +30,6 @@ public class Livro {
             this.autor = autor;
             this.disponivel = true;           
         }
-        
-        /**
-         * 
-         * @id
-         * @isbn
-         * @titulo
-         * @autor
-         * @disponivel
-         * Uma vez que os parâmetros foram devidamente declarados, realizar-se-ão os getters e setters.
-         */
-        
         public int getId(){
             return id;
         }
@@ -49,6 +40,10 @@ public class Livro {
         
         public String getIsbn(){
             return isbn;
+        }
+
+        public void setIsbn(String isbn){
+            this.isbn = isbn;
         }
 
         public String getTitulo(){
@@ -63,12 +58,52 @@ public class Livro {
             return autor;
         }
 
+        public String setAutor(String autor){
+            this.autor = autor;
+        }
+
         public boolean isDisponivel(){
             return disponivel;
         }
 
         public void setDisponivel(boolean disponivel){
             this.disponivel = disponivel;
+        }
+
+
+        @Override
+        public String toString(){
+            String estado = disponivel ? "Disponivel" : "Emprestado";
+            return "ID: " + id + ", ISBN: " + isbn + ", Titulo: " + titulo + ", Autor: " + autor + ", Estado: " + estado;
+        }
+
+        public class Membro {
+            private int id;
+            private String numeroSocio;
+            private String primeiroNome;
+            private String apelido;
+            private String email;
+        }
+
+        private static int contadorId = 1;
+
+        public Membro(String numeroSocio, String primeiroNome, String apelido, String email){
+            this.id = contadorId++;
+            this.numeroSocio = numeroSocio;
+            this.primeiroNome = primeiroNome;
+            this.apelido = apelido;
+            this.email = email;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getNumeroSocio() {
+            return NumeroSocio();
+        }
+        public void setNumeroSocio(String numeroSocio) {
+            this.numeroSocio = numeroSocio;
         }
 
     public static void main(String args[]) {
